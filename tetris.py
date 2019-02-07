@@ -1,30 +1,7 @@
 #!/usr/bin/python3
 
 from adventurelib import *
-
-
-direction = 0
-
-
-@when('turn left', context='tetris')
-def turn_left():
-    global direction
-    direction = (direction + 1) % 4
-    say('You turn left.')
-
-
-@when('turn right', context='tetris')
-def turn_right():
-    global direction
-    direction = (direction - 1) % 4
-    say('You turn right.')
-
-
-@when('wake up', context='tetris')
-@when('wake', context='tetris')
-def wake_up():
-    set_context(None)
-
+import _dream
 
 bedroom = Room("""Your bedroom is a mess, just as you left it. A SNES running TETRIS™ sits in the corner""")
 bedroom.name = "bedroom"
