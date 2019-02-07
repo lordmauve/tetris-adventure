@@ -18,11 +18,20 @@ bedroom.name = "bedroom"
 bedroom.has_tetris = True
 living_room = Room("""Austere swedish furniture fills this room. TETRIS™ posters and other merchendise decorates the walls.""")
 living_room.name = "living room"
-street = Room("""It is dark, a taxi is waiting""")
+street = Room("""It is dark, and cool outside. Dampness is in the winter air. A taxi is waiting.""")
 street.name = "outside"
 
-convention_center = Room("""There are a large number of people milling here. They are all here for the TETRIS™ world championships""")
+convention_center = Room(
+f"""There are a large number of people milling here. They are all here for the TETRIS™ world championships.
+
+The centre of the hall contains exhibitors selling merchandise and other retro
+games. You don't respond to the grey bearded man selling copies of Joust™ in
+original boxes, and walk away.
+
+A few free {TETRIS} arcade machines are along the wall in the lobby.
+""")
 convention_center.name = "convention center"
+convention_center.has_tetris = True
 
 bedroom.south = living_room
 living_room.south = street
