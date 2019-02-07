@@ -33,6 +33,9 @@ living_room.name = "living room"
 street = Room("""It is dark, a taxi is waiting""")
 street.name = "outside"
 
+convention_center = Room("""There are a large number of people milling here. They are all here for the TETRIS™ world championships""")
+convention_center.name = "convention center"
+
 bedroom.south = living_room
 living_room.south = street
 
@@ -48,6 +51,14 @@ def look_around():
     for exit in current_room.exits():
         destination = current_room.exit(exit)
         say("The {} is to the {}".format(destination.name, exit))
+
+
+@when("get in taxi")
+def taxi():
+    global current_room
+    say("The taxi ride is long and uneventful. You arrive at the convention centre with time to spare before the competition beings.")
+    current_room = convention_center
+    look_around()
 
 
 @when("n", exit="north")
@@ -67,7 +78,7 @@ def move(exit):
     if destination:
         say("You walk {} to the {}".format(exit, destination.name))
         current_room = destination
-        say(current_room.description)
+        look_around()
     else:
         say("You cannot move {}".format(exit))
 
