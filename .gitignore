@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/tetris-adventure.iml
+.idea/workspace.xml
+.idea/vcs.xml
