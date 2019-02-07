@@ -12,7 +12,7 @@ def drop():
         say('You feel a pang of fear.')
 
 
-@when('turn left', context='tetris')
+@when('turn left', context='dream')
 def turn_left():
     global direction
     drop()
@@ -21,7 +21,7 @@ def turn_left():
     look()
 
 
-@when('turn right', context='tetris')
+@when('turn right', context='dream')
 def turn_right():
     global direction
     drop()
@@ -30,7 +30,7 @@ def turn_right():
     look()
 
 
-@when('look', context='tetris')
+@when('look', context='dream')
 @when('look', context='stuck')
 @when('l', context='tetris')
 @when('l', context='stuck')
@@ -77,13 +77,13 @@ def stuck():
             'awareness drifts back to you. You are in your bedroom, your '
             'sheets moist with quickly cooling sweat.'
         )
-        set_context(None)
+        set_context('awake')
     else:
         say('You try, but you are stuck.')
 
 
-@when('wake up', context='tetris')
-@when('wake', context='tetris')
+@when('wake up', context='dream')
+@when('wake', context='dream')
 def wake_up():
-    set_context(None)
+    set_context('awake')
 
