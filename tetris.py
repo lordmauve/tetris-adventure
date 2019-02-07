@@ -18,6 +18,14 @@ living_room.south = street
 
 current_room = bedroom
 
+person1 = Item("Gary")
+person2 = Item("Steve")
+person3 = Item("John")
+
+convention_center.people = Bag()
+convention_center.people.add(person1)
+convention_center.people.add(person2)
+convention_center.people.add(person3)
 
 @when("look around")
 @when("look")
@@ -28,6 +36,10 @@ def look_around():
     for exit in current_room.exits():
         destination = current_room.exit(exit)
         say("The {} is to the {}".format(destination.name, exit))
+    if hasattr(current_room, "people"):
+        people_in_room = [p.name for p in current_room.people]
+        say("There are {} people here. There is {}".format(len(people_in_room), ",".join(people_in_room)))
+
 
 
 @when("get in taxi")

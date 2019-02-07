@@ -32,6 +32,8 @@ def turn_right():
 
 @when('look', context='tetris')
 @when('look', context='stuck')
+@when('l', context='tetris')
+@when('l', context='stuck')
 def look():
     global height
     drop()
